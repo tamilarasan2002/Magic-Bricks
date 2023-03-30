@@ -1,0 +1,44 @@
+
+.filter-sub-head{
+    width: 100%;
+    position: sticky;
+    top:0;
+    z-index: 74;
+    background-color: #d8232a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .filter-options{
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        margin:  .2rem ;
+        padding: .3rem 1rem ;
+        border-radius: 2rem;
+        width: fit-content;
+        .filter-row{
+            display: flex;
+            align-items: center;
+        }
+        span{
+            font-size: .8rem;
+            cursor: pointer;
+        }
+        .search-loction{
+            background-color: #fbe9e9;
+            padding: .3rem 1rem;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            margin-right:.5rem;
+        
+        }
+        input{
+            border: none;
+            outline: none;
+            padding: 0 .5rem ;
+        }
+    }
+   
+    
+}
