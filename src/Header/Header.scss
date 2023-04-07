@@ -1,9 +1,12 @@
 .header-container{
+      
+    
     a{
         display: flex;
         align-items: center;
         color: #fff;
         justify-content: center;
+        cursor: pointer;
     }
          font-family: Montserrat,Helvetica,Arial,sans-serif;
          height: 50px;
@@ -19,7 +22,7 @@
         display: inline-block;
         width: 100%;
         font-size: 1.8rem;
-        font-weight: 500;
+        font-weight: 600;
      }
      .right-contaniner{
         align-items: center;

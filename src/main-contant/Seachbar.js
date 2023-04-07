@@ -11,7 +11,20 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurentPage, setflatBHK, setminmax, setResident, } from '../Store/Reducer';
 import { useNavigate } from 'react-router-dom';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Seachbar = () => {
+
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      };
+
     const Navigate = useNavigate();
     const state= useSelector((eve)=>eve.Bricks.budget);
     const residentFlat= useSelector((eve)=>eve.Bricks.resident)
@@ -19,7 +32,6 @@ const Seachbar = () => {
 
     console.log(residentFlat,state,flatBHK)
     const dispatch=useDispatch();
-
     const minprice=["500000","1000000","2000000","3000000","4000000","5000000","6000000","7000000","8000000","9000000","10000000"]
     const [priceShow,setpriceShow]=useState(false);
     const [flatShow,setflatShow]=useState(false);
@@ -78,17 +90,17 @@ const Seachbar = () => {
         // console.log(inputmin,inputmax)
     return (
         <Grid container className='search-container'>
-            <Grid item xs={9.5}>
+            <Grid item xs={9}>
                 <Grid className='search-head '>
                     Welcome back! Let’s continue your search 
                 </Grid>
                 <Grid container className='search-links'>
-                    <Grid item xs={.5}><a  href='https/#' >Buy</a></Grid>
-                    <Grid item xs={.5}><a href='https/#' >Rent</a> </Grid>
-                    <Grid item xs={.5}> <a href='https/#' >PG</a> </Grid>
-                    <Grid item xs={.5}>  <a href='https/#' >Plot</a></Grid>
+                    <Grid item xs={1}><a  href='https/#' >Buy</a></Grid>
+                    <Grid item xs={1}><a href='https/#' >Rent</a> </Grid>
+                    <Grid item xs={1}> <a href='https/#' >PG</a> </Grid>
+                    <Grid item xs={1}>  <a href='https/#' >Plot</a></Grid>
                     <Grid item xs={1.5}><a href='https/#' >Commerial</a></Grid>
-                    <Grid item xs={2}> <a href='https/#' >Post Free Property Ad</a></Grid>
+                    <Grid item xs={2.5}> <a href='https/#' >Post Free Property Ad</a></Grid>
                 </Grid>
                 <Grid container className='Search-bar'>
                     <Grid className='search-loction-container'  item xs={4.5} >
@@ -232,7 +244,17 @@ const Seachbar = () => {
                  </Grid>
             </Grid> 
         <Grid item xs={2.5}>
-            <img src='https://cdn.staticmb.com/magicservicestatic/images/revamp/mbhome-web/tvc/tvc-campaign-web-pnm.png' alt="imagr not found" />
+          <Slider {...settings} autoplay={true}>
+                <div>
+                    <a href='https://youtu.be/0JL5W8m-cGg'><img src='https://cdn.staticmb.com/magicservicestatic/images/revamp/mbhome-web/tvc/tvc-campaign-web-pnm.png' alt="imagr not found" /></a>
+                </div>
+                <div>
+                <a href='https://youtu.be/0JL5W8m-cGg'><img src='https://cdn.staticmb.com/magicservicestatic/images/revamp/mbhome-web/tvc/tvc-campaign-web-home-loan-2.png' alt="imagr not found" /></a>
+                </div>
+                <div>
+                <a href='https://youtu.be/0JL5W8m-cGg'><img src='https://cdn.staticmb.com/magicservicestatic/images/revamp/mbhome-web/tvc/tvc-campaign-web-advice-2.png' alt="imagr not found" /></a>
+                </div>
+            </Slider>
         </Grid>
     </Grid>
   )

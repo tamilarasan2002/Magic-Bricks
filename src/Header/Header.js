@@ -2,18 +2,18 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './Header.scss'
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const state = useSelector((res)=>res.Bricks.curentPage)
-  console.log(state)
+  const navigate =useNavigate()
   return (
-    <Grid container className='header-container' style={state!=='/'? { background:'#fff' } : null }>
+    <Grid container className='header-container'>
         <Grid item xs={6} >
           <Grid container className='left-contaniner'>
           <Grid item xs={4}>
-            <a className='left-link' href={'https://www.magicbricks.com/'}> magicbricks </a>
+            <span className='left-link'  onClick={()=>{navigate("/")}}> magicbricks </span>
           </Grid>
+          
           <Grid item xs={2}>
             <a className='left-location' href={'https://www.magicbricks.com/'}>Chennai <ExpandMoreIcon/></a>
           </Grid>

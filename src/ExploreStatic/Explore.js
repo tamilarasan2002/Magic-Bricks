@@ -30,7 +30,7 @@ function Explore() {
                             </div>
                         </Grid>
                         <Grid className='gal-link'>
-                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality00.png' alt='no image'></img>
+                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality00.png' alt={'not found'}></img>
                             <p>1395 Properties for sale <ArrowForwardIcon className='arrow'/></p>
                         </Grid>
                     </Grid>
@@ -50,7 +50,7 @@ function Explore() {
                             </div>
                         </Grid>
                         <Grid className='gal-link'>
-                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality01.png' alt='no image'></img>
+                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality01.png' alt='not found'></img>
                             <p>967 Properties for sale <ArrowForwardIcon className='arrow'/></p>
                         </Grid>
                     </Grid>
@@ -70,7 +70,7 @@ function Explore() {
                             </div>
                         </Grid>
                         <Grid className='gal-link'>
-                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality02.png' alt='no image'></img>
+                            <img src='https://cdn.staticmb.com/magicservicestatic/images/topLocality/topLocality02.png' alt='not found'></img>
                             <p>746 Properties for sale <ArrowForwardIcon className='arrow'/></p>
                         </Grid>
                     </Grid>

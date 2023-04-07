@@ -1,10 +1,12 @@
-import { Grid, Typography,Card } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import './Newproject.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useNavigate } from "react-router-dom";
 
 const Newproject=()=>{
+    const navigate=useNavigate()
     const state = useSelector((eve)=>eve.Bricks.api)
     console.log(state)
     return(
@@ -20,10 +22,10 @@ const Newproject=()=>{
             { [...state].map((element,index)=>{
                 return(
                    (element.house_id <= 6) ? 
-                    <Grid className="gallary-card" key={index} item xs= {3.8}>
+                    <Grid onClick={()=>navigate(`/unicdata/${element.house_id}`)} className="gallary-card" key={index} item xs= {3.8}>
                         <Grid container>
                             <Grid item xs={5}>
-                                <img src={element.house_img} alt="image not found"></img>
+                                <img src={element.house_img} alt="not found"></img>
                             </Grid>
                             <Grid item xs={7} className="card-content">
                                 <Typography variant="h6" component="h6">{ element.house_name }</Typography>

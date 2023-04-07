@@ -10,6 +10,24 @@
         width: 25%;
         height: auto;
         padding:1rem;
+        .call-me{
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem 0;
+        }
+        .call-me div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #d8232a;
+            color: #fff;
+            font-size: .9rem;
+            padding: .5rem;
+            border-radius: 50%;
+            svg{
+                font-size: 1rem 
+            }
+        }
         .contact-button-1{
             background-color: #d8232a;
             color: #fff;
@@ -25,6 +43,10 @@
             border-radius: 8px;
             background-clip: padding-box;
             margin-bottom:1rem ;
+            .error{
+                font-size: small;
+                color: #d8232a;
+            }
             span{
                 a{
                     font-size: 14px;
@@ -36,9 +58,14 @@
                 select{
                     width: 30%;
                     border: none;
+                    outline: none;
                 }
                 input{
                     width: 70%;
+                }
+                input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+                    -webkit-appearance: none;
+                    margin: 0;
                 }
             }
             .form-text{

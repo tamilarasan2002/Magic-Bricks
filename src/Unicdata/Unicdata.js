@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Grid, Typography } from "@mui/material"
+import React,{useState} from "react";
+import { Button, Grid } from "@mui/material"
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
@@ -16,9 +16,11 @@ import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import NoCrashSharpIcon from '@mui/icons-material/NoCrashSharp';
 import AirlineSeatIndividualSuiteIcon from '@mui/icons-material/AirlineSeatIndividualSuite';
 import FormatListBulletedSharpIcon from '@mui/icons-material/FormatListBulletedSharp';
+import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import PhoneIcon from '@mui/icons-material/Phone';
 import './unicdata.scss'
-
-
+import MaxWidthDialog from "./unicDialog";
 const Unicdata=()=>{
     const param=useParams()
     const state=useSelector((res)=>res.Bricks.api)
@@ -29,8 +31,8 @@ const Unicdata=()=>{
             return element.house_id === param.id
         }).map((ele,index)=>{
             return(
-                <Grid className="unic-details">
-                <Grid className="unic-container" key={index}>
+                <Grid className="unic-details" key={index}>
+                <Grid className="unic-container" >
                     <Grid className="unic-head">
                         <p className="head-title"><span className="title-price">{ele.house_price} Lacs</span>Get ₹ 5013 cashback on Home Loan</p>
                         <p className="head-title">{ele.flat} BHK {ele.super_area} Sqft Flat for Sale {ele.house_area} <span className="title-location">Chennai</span> </p>
@@ -38,7 +40,7 @@ const Unicdata=()=>{
                     </Grid>
                     <Grid container className='unic-contents'>
                         <Grid item xs={4} className="unic-house--img">
-                            <img src={'https://img.staticmb.com/mbphoto/property/cropped_images/2023/Feb/25/Photo_h300_w450/65691755_4_bhkbedroom21_300_450.jpg'} alt={'image not fount'} />
+                            <img src={'https://img.staticmb.com/mbphoto/property/cropped_images/2023/Feb/25/Photo_h300_w450/65691755_4_bhkbedroom21_300_450.jpg'} alt='not fount' />
                         </Grid>
                         <Grid item xs={8} className='unic-content-1' >
                             <Grid container className="unic-detail-1">
@@ -99,7 +101,7 @@ const Unicdata=()=>{
                     <Grid className="Unic-offer"><p><span>OFFER</span> 40th Anniversary offer . Save up {Math.round(ele.house_price/8) }Lakhs</p></Grid>
                     <Grid container className="Unic-buttons"> 
                         <Grid item>
-                            <Button onClick={()=>{}} className='contact-button-1'>Contact Builder</Button>
+                            <MaxWidthDialog />
                             <Button onClick={()=>{}} className='contact-button-2'> Book Site Visit</Button>
                         </Grid>
                         <Grid item>
@@ -199,8 +201,7 @@ const Amenities = () => {
             <h1>Amenities</h1>
             <Grid container className="amenities-container">
                 {[...details].map((ele,index)=>{
-                   
-                   return<Grid container item xs={4} className="amenities-elements">
+                   return<Grid container item xs={4} key={index} className="amenities-elements">
                         {ele.icon}
                         <span>{ele.text}</span>
                     </Grid>
@@ -212,17 +213,34 @@ const Amenities = () => {
         </Grid>
     )
 }
-const Regiterform = () =>{
+export const Regiterform = () =>{
+    const [userName,setusername]=useState('')
+    const [userEmail,setEmail]=useState('')
+    const [formvalid,setformvalid]=useState(false)
+    const [userNumber,setNumber]=useState('')
+    const [call,callMe]=useState(false)
+
+    const handelForm =()=>{
+        setformvalid(true);
+        if(userName!=='' && userNumber!=='' && userEmail!==''){
+            callMe(true)
+        }
+    }
     return(
         <Grid className="unic-form">
             <Grid className="form-head">
                 <h1>Contact Builder </h1>
                 <h1>Doshi Housung Team</h1>
-                <span><a href="tel:9688717898"> 91+96******89</a></span>
             </Grid>
             <Grid className="form-head">
-                <input type={'text'} placeholder='YOUR NAME'/>
-                <input type={'text'} placeholder='Email'/>
+                <input type={'text'} placeholder='YOUR NAME' onChange={(even)=>{
+                    setusername(even.target.value);
+                }}/>
+                {formvalid ? (userName=== "" ? <p className="error">Please Enter your user name</p> :null) :null}
+                <input type={'Email'} placeholder='Email' onChange={(even)=>{
+                    setEmail(even.target.value);
+                }}/>
+                {formvalid ? (userEmail=== "" ? <p className="error" >Please Enter your user Email </p>:null) :null}
                 <Grid className="form-select">
                     <select>
                         <option>IND +91</option>
@@ -230,10 +248,20 @@ const Regiterform = () =>{
                         <option>UK +72</option>
                         <option>NES +44</option>
                     </select>
-                    <input type={'text'} placeholder='Moblie Number'/>
+                    <input type={'number'} placeholder='Moblie Number' required maxlength={10} onChange={(even)=>{
+                        setNumber(even.target.value);
+                }}/>
+                    {formvalid ? (userNumber=== "" ? <p className="error">Please Enter Moblie Number</p>:null) :null}
+                    
                 </Grid>
                 <p className="form-text">I Agree to MagicBricks <span>Terms of use</span></p>
-                <Button onClick={()=>{}} className='contact-button-1'>Get Contact Details</Button>
+                <Button onClick={()=>{handelForm()}} className='contact-button-1'>Get Contact Details</Button>
+                {call?
+                        <Grid className="call-me">
+                            <a href="http//#"><Grid><PhoneIcon /></Grid></a>
+                            <a href="http//#"><Grid><WhatsAppIcon /></Grid></a>
+                            <a href="http//#"><Grid><EmailIcon /></Grid></a>
+                        </Grid>:null}
             </Grid>
             <Grid className="form-head">
                 <p className="form-download"><InsertDriveFileIcon/>Download Brochure</p>

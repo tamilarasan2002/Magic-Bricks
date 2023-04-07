@@ -12,7 +12,7 @@ import { createSlice } from "@reduxjs/toolkit"
     },
     reducers:{
         setApi:(State,action)=>{
-            State.api=action.payload
+            State.api=action.payload 
         },
         setminmax:(State,action)=>{
             // console.log(action,action.payload.key,action.payload.value)

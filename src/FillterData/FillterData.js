@@ -52,7 +52,7 @@ const FillterData=()=>{
                         <Grid key={ind} container className="filter-elements">
                             <Grid item xs={2} className='house-img-container' >
                                 <Grid className='house-img'>
-                                    <img src={ele.house_img} alt='image not found'/>
+                                    <img src={ele.house_img} alt=' not found'/>
                                 </Grid>
                                 <Typography component={'p'} className='filter-owner' >Owner : {ele.owner_name}</Typography>
                             </Grid>
