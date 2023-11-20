@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Grid } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import './filterHead.scss'
